@@ -1,0 +1,18 @@
+[package]
+name = "lean-sys-macros"
+version = "0.0.1"
+authors = ["Alok Singh <alok@aloksingh.com>"]
+edition = "2021"
+description = "Procedural macros for generating Lean 4 FFI bindings"
+repository = "https://github.com/digama0/lean-sys"
+license = "MIT OR Apache-2.0"
+keywords = ["lean", "ffi", "macros", "proc-macro"]
+categories = ["development-tools::procedural-macro-helpers"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", features = ["full", "parsing", "extra-traits"] }

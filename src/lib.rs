@@ -11,6 +11,10 @@ Functions and comments manually translated from those in the [`lean.h` header](h
 
 extern crate alloc as alloc_crate;
 
+// Re-export macros when feature is enabled
+#[cfg(feature = "macros")]
+pub use lean_sys_macros::{lean_export, lean_callback, lean_extern};
+
 use core::ffi::*;
 use core::sync::atomic::{AtomicI32, AtomicI64, AtomicU32, Ordering};
 use memoffset::raw_field;
