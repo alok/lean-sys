@@ -238,7 +238,16 @@ extern "C" {
         a15: *mut lean_object,
         a16: *mut lean_object,
     ) -> *mut lean_object;
-    pub fn lean_apply_n(f: *mut lean_object, args: *mut *mut lean_object) -> *mut lean_object;
-    /** Pre: n > 16 */
-    pub fn lean_apply_m(f: *mut lean_object, args: *mut *mut lean_object) -> *mut lean_object;
+    /// Apply a closure to n arguments (n can be any value)
+    pub fn lean_apply_n(
+        f: *mut lean_object,
+        n: c_uint,
+        args: *mut *mut lean_object,
+    ) -> *mut lean_object;
+    /// Apply a closure to n arguments. Pre: n > 16
+    pub fn lean_apply_m(
+        f: *mut lean_object,
+        n: c_uint,
+        args: *mut *mut lean_object,
+    ) -> *mut lean_object;
 }

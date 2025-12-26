@@ -9,6 +9,8 @@ Functions and comments manually translated from those in the [`lean.h` header](h
 #![allow(clippy::missing_safety_doc)]
 #![no_std]
 
+extern crate alloc as alloc_crate;
+
 use core::ffi::*;
 use core::sync::atomic::{AtomicI32, AtomicI64, AtomicU32, Ordering};
 use memoffset::raw_field;
@@ -33,6 +35,11 @@ pub mod string;
 pub mod task;
 pub mod thread;
 pub mod thunk;
+
+/// Safe, high-level wrappers for Lean objects with automatic reference counting.
+///
+/// See the [`safe`] module documentation for details.
+pub mod safe;
 
 pub use array::*;
 pub use closure::*;
